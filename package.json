@@ -1,0 +1,39 @@
+{
+  "name": "elasticsearch-indexer",
+  "version": "0.0.0",
+  "description": "An advanced elasticsearch bulk indexer",
+  "main": "index.js",
+  "scripts": {
+    "test": "node test/unit/run.js | tap-spec",
+    "integration": "node test/integration/run.js | tap-spec"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/pelias/elasticsearch-indexer"
+  },
+  "keywords": [
+    "elasticsearch",
+    "client",
+    "stream",
+    "bulk"
+  ],
+  "author": "mapzen",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/pelias/elasticsearch-indexer/issues"
+  },
+  "homepage": "https://github.com/pelias/elasticsearch-indexer",
+  "devDependencies": {
+    "async": "^0.9.0",
+    "elasticsearch": "^4.0.2",
+    "elastictest": "0.0.0",
+    "precommit-hook": "^1.0.7",
+    "randomstring": "^1.0.5",
+    "tap-spec": "^0.2.0",
+    "tape": "^2.13.4"
+  },
+  "dependencies": {
+    "check-types": "^3.1.1",
+    "through2": "^0.6.1"
+  }
+}
