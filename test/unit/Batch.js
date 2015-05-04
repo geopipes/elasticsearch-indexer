@@ -28,7 +28,7 @@ module.exports.tests.constructor = function(test, common) {
   test('constructor', function(t) {
 
     var MockBatch = function(){
-      Batch.call(this);
+      Batch.apply(this,arguments);
     };
     util.inherits( MockBatch, Batch );
 
@@ -42,6 +42,20 @@ module.exports.tests.constructor = function(test, common) {
     t.plan(3);
     var b = new MockBatch();
     t.equal( b.retries, 0, 'default retries count' );
+  });
+  test('constructor - opts.size', function(t) {
+
+    var MockBatch = function(){
+      Batch.apply(this,arguments);
+    };
+    util.inherits( MockBatch, Batch );
+
+    MockBatch.prototype.setSize = function( param ){
+      t.equal(param, 999, 'setSize called in contructor');
+      t.end();
+    };
+
+    var b = new MockBatch({ size: 999 });
   });
 };
 
