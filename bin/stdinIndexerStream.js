@@ -2,6 +2,7 @@
 var indexer = require('../index'),
     split = require('split'),
     through = require('through2'),
+    logger = require('../lib/logger'),
     elasticsearch = require('elasticsearch');
 
 module.exports = function createStream( opts ){
@@ -31,7 +32,7 @@ function jsonParser(){
       if( o ){ this.push( o ); }
     }
     catch( e ){
-      console.error( 'stream end' );
+      logger.error( 'stream end' );
     }
     finally {
       next();
